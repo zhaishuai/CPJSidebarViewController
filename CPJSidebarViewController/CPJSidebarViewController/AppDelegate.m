@@ -23,7 +23,7 @@
     // 2. 创建控制器
     UIViewController *leftVC = [UIViewController new];
     UIViewController *mainVC = [UIViewController new];
-
+    UIViewController *rightVC = [UIViewController new];
     
     
 //    [self.navigationController pushViewController:sidebarVC animated:YES];
@@ -31,7 +31,7 @@
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     
-    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav];
+    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav withRightVC:rightVC];
     
     // 3. 创建跟控制器
 //    LeftViewController *controller = [[LeftViewController alloc] initWithLeftView:left andMainView:nav andRightView:right];

@@ -13,11 +13,6 @@
 
 @interface CPJSidebarViewController ()
 
-@property (nonatomic, assign)BOOL                 closed;          //侧边栏关闭
-@property (nonatomic, assign)CPJSlidebarDirection direction;       //滑动方向（仅水平方向）
-//@property (nonatomic, assign)CGFloat              leftX;           //左边界
-//@property (nonatomic, assign)CGFloat              rightX;          //右边界
-
 @end
 
 @implementation CPJSidebarViewController
@@ -29,6 +24,7 @@
         self.leftVC = leftVC;
         self.mainVC = mainVC;
         self.speedRatio = 1.0;
+        self.leftDistance = 300;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
         [self.view addSubview:self.leftVC.view];
@@ -45,15 +41,19 @@
         self.leftVC = leftVC;
         self.mainVC = mainVC;
         self.speedRatio = 1.0;
+        self.leftDistance = 300;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
         [self.view addSubview:self.leftVC.view];
         self.leftVC.view.backgroundColor = [UIColor greenColor];
-        [self.view addSubview:self.mainVC.view];
-        self.mainVC.view.backgroundColor = [UIColor redColor];
+        
         self.rightVC = rightVC;
         [self.view addSubview:self.rightVC.view];
         self.rightVC.view.backgroundColor = [UIColor blueColor];
+        
+        [self.view addSubview:self.mainVC.view];
+        self.mainVC.view.backgroundColor = [UIColor redColor];
+        
     }
     return self;
 }
@@ -62,39 +62,41 @@
 - (void)panAction:(UIPanGestureRecognizer *)sender{
     
     CGPoint point = [sender translationInView:self.view];
-    self.leftDistance = 200;
-    NSLog(@"midX:%f     x:%f",((SCREEN_WIDTH + self.leftDistance))/2, self.mainVC.view.center.x + point.x);
+    CGFloat px = self.mainVC.view.center.x + point.x;             //当前横坐标
+    NSLog(@"midX:%f     x:%f", SCREEN_WIDTH/2, self.mainVC.view.center.x + point.x);
     if(sender.state == UIGestureRecognizerStateBegan){
-        if (point.x < 0) {
-            self.direction = CPJSDIRECTION_LEFT;
-        } else if(point.x > 0) {
-            self.direction = CPJSDIRECTION_RIGHT;
-        } else {
-            self.direction = CPJSDIRECTION_NONE;
-        }
+
     }else if(sender.state == UIGestureRecognizerStateChanged){
         
-        if(self.direction == CPJSDIRECTION_RIGHT){
+        if(px >= SCREEN_WIDTH/2){                                 //向右滑动
             self.leftVC.view.hidden = NO;
+            self.rightVC.view.hidden = YES;
+        }else{                                                    //向左滑动
+            self.leftVC.view.hidden = YES;
+            self.rightVC.view.hidden = NO;
         }
-        
         
         [self slideAnimationWithPoint:point];
     }else if(sender.state == UIGestureRecognizerStateEnded){
-        CGFloat midX = ((SCREEN_WIDTH + self.leftDistance)*0.5);
         
-        if(self.mainVC.view.center.x + point.x < midX){
-            [self performOpenMainViewAnimation];
-        }else{
-            [self performOpenLeftViewAnimation];
+        if(px >= SCREEN_WIDTH/2){                                 //向右滑动
+            CGFloat midX = ((SCREEN_WIDTH + self.leftDistance)*0.5);
+            if(px < midX){
+                [self performOpenMainViewAnimation];
+            }else{
+                [self performOpenLeftViewAnimation];
+            }
+        }else{                                                    //向左滑动
+            CGFloat midX = ((SCREEN_WIDTH - self.leftDistance)*0.5);
+            if(px > midX){
+                [self performOpenMainViewAnimation];
+            }else{
+                [self performOpenRightViewAnimation];
+            }
         }
-        
-        
-        
+
     }
-    
-    
-    
+
     [sender setTranslation:CGPointMake(0, 0) inView:self.view];
 }
 
@@ -103,7 +105,6 @@
     [UIView beginAnimations:nil context:nil];
     self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
     self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 + self.leftDistance)), self.mainVC.view.center.y);
-    self.closed					= NO;
     [UIView commitAnimations];
 }
 
@@ -112,13 +113,15 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
         self.mainVC.view.center		= CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-        self.closed					= NO;
     } completion:^(BOOL finished) {
         self.leftVC.view.hidden = YES;
     }];
-    
+}
+
+- (void)performOpenRightViewAnimation{
     [UIView beginAnimations:nil context:nil];
-    
+    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 - self.leftDistance)), self.mainVC.view.center.y);
     [UIView commitAnimations];
 }
 
