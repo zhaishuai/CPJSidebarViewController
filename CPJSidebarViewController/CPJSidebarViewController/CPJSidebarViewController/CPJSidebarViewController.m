@@ -13,6 +13,8 @@
 
 @interface CPJSidebarViewController ()
 
+@property (nonatomic ,assign)CGPoint lastTranslation;
+
 @end
 
 @implementation CPJSidebarViewController
@@ -24,7 +26,8 @@
         self.leftVC = leftVC;
         self.mainVC = mainVC;
         self.speedRatio = 1.0;
-        self.leftDistance = 300;
+        self.leftDistance = 150;
+        self.scaleRatio = 1.0;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
         [self.view addSubview:self.leftVC.view];
@@ -41,7 +44,8 @@
         self.leftVC = leftVC;
         self.mainVC = mainVC;
         self.speedRatio = 1.0;
-        self.leftDistance = 300;
+        self.leftDistance = 150;
+        self.scaleRatio = 1.0;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
         [self.view addSubview:self.leftVC.view];
@@ -81,29 +85,31 @@
         
         if(px >= SCREEN_WIDTH/2){                                 //向右滑动
             CGFloat midX = ((SCREEN_WIDTH + self.leftDistance)*0.5);
-            if(px < midX){
-                [self performOpenMainViewAnimation];
-            }else{
-                [self performOpenLeftViewAnimation];
-            }
+//            if(px < midX){
+//                [self performOpenMainViewAnimation];
+//            }else{
+//                [self performOpenLeftViewAnimation];
+//            }
         }else{                                                    //向左滑动
             CGFloat midX = ((SCREEN_WIDTH - self.leftDistance)*0.5);
-            if(px > midX){
-                [self performOpenMainViewAnimation];
-            }else{
-                [self performOpenRightViewAnimation];
-            }
+//            if(px > midX){
+//                [self performOpenMainViewAnimation];
+//            }else{
+//                [self performOpenRightViewAnimation];
+//            }
         }
+        self.lastTranslation = CGPointZero;
 
     }
-
+    self.lastTranslation = CGPointMake(self.lastTranslation.x + point.x, self.lastTranslation.y + point.y);
     [sender setTranslation:CGPointMake(0, 0) inView:self.view];
 }
 
 - (void)performOpenLeftViewAnimation{
     
     [UIView beginAnimations:nil context:nil];
-    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+//    CGFloat scaleRatio = [self getScaleRatio:point];
+    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,self.scaleRatio,self.scaleRatio);
     self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 + self.leftDistance)), self.mainVC.view.center.y);
     [UIView commitAnimations];
 }
@@ -111,7 +117,7 @@
 - (void)performOpenMainViewAnimation{
     
     [UIView animateWithDuration:0.2 animations:^{
-        self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+        self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
         self.mainVC.view.center		= CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     } completion:^(BOOL finished) {
         self.leftVC.view.hidden = YES;
@@ -120,13 +126,42 @@
 
 - (void)performOpenRightViewAnimation{
     [UIView beginAnimations:nil context:nil];
-    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0, 1.0);
     self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 - self.leftDistance)), self.mainVC.view.center.y);
     [UIView commitAnimations];
 }
 
 - (void)slideAnimationWithPoint:(CGPoint)point{
+    
+    CGFloat scaleRatio = [self getScaleRatio:point];
+    CGFloat pan = self.mainVC.view.frame.size.width - self.mainVC.view.frame.size.width * scaleRatio;
+//    pan /= 2;
+    
+    self.mainVC.view.transform = CGAffineTransformScale(CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 0), scaleRatio, scaleRatio) ;
     self.mainVC.view.center = CGPointMake(self.mainVC.view.center.x + point.x * self.speedRatio, self.mainVC.view.center.y);
+    
 }
+
+- (CGFloat)getScaleRatio:(CGPoint)point{
+    
+    CGFloat px = self.mainVC.view.center.x + point.x;                                   //当前横坐标
+    
+    if(px >= SCREEN_WIDTH/2){                                                           //向右滑动
+        CGFloat scale = 1.0 - (px-SCREEN_WIDTH/2)/self.leftDistance;
+        if(scale < self.scaleRatio){
+            scale = self.scaleRatio;
+        }else if(scale > 1.0){
+            scale = 1.0;
+        }
+        return scale;
+    }else{                                                                              //向左滑动
+        
+        
+        
+    }
+    
+    return 1.0;
+}
+
 
 @end

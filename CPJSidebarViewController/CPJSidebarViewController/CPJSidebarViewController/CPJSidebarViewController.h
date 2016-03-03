@@ -21,8 +21,9 @@ typedef NS_ENUM(NSInteger, CPJSlidebarDirection){
 @property (nonatomic)UIViewController* leftVC;                          //左侧面板控制器
 @property (nonatomic)UIViewController* mainVC;                          //主面板控制器
 @property (nonatomic)UIViewController* rightVC;                         //右侧面板控制器
-@property (nonatomic)CGFloat           speedRatio;                      //滑动速度系数，默认1.0
-@property (nonatomic)CGFloat           leftDistance;                    //左窗口打开的距离
+@property (nonatomic, assign)CGFloat   speedRatio;                      //滑动速度系数，默认1.0
+@property (nonatomic, assign)CGFloat   leftDistance;                    //左窗口打开的距离
+@property (nonatomic, assign)CGFloat   scaleRatio;                      //窗口缩放比例，默认1.0
 
 - (instancetype)initWithLeftVC:(UIViewController *)leftVC withMainVC:(UIViewController *)mainVC;
 
