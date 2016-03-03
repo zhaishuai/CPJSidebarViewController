@@ -27,7 +27,7 @@
         self.mainVC = mainVC;
         self.speedRatio = 1.0;
         self.leftDistance = 150;
-        self.scaleRatio = 1.0;
+        self.rightDistance = self.leftDistance;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
         [self.view addSubview:self.leftVC.view];
@@ -45,7 +45,7 @@
         self.mainVC = mainVC;
         self.speedRatio = 1.0;
         self.leftDistance = 150;
-        self.scaleRatio = 1.0;
+        self.rightDistance = self.leftDistance;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
         [self.view addSubview:self.leftVC.view];
@@ -124,8 +124,9 @@
 
 - (void)performOpenRightViewAnimation{
     [UIView beginAnimations:nil context:nil];
-    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,1.0, 1.0);
-    self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 - self.leftDistance)), self.mainVC.view.center.y);
+    CGFloat scaleRatio = [self getScaleRatio:CGPointMake(SCREEN_WIDTH/2 - self.rightDistance - self.mainVC.view.center.x, 0)];
+    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,scaleRatio, scaleRatio);
+    self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 - self.rightDistance)), self.mainVC.view.center.y);
     [UIView commitAnimations];
 }
 
@@ -138,20 +139,26 @@
 }
 
 - (CGFloat)getScaleRatio:(CGPoint)point{
-    
     CGFloat px = self.mainVC.view.center.x + point.x;                                   //当前横坐标
     
     if(px >= SCREEN_WIDTH/2){                                                           //向右滑动
+        if(!self.rightScale){
+            return 1.0;
+        }
         CGFloat scale = 1.0 - (px-SCREEN_WIDTH/2)/RATIOFORSCALE;
-        if(scale < self.scaleRatio){
-            scale = self.scaleRatio;
-        }else if(scale > 1.0){
+        if(scale > 1.0){
             scale = 1.0;
         }
         return scale;
     }else{                                                                              //向左滑动
-        
-        
+        if(!self.leftScale){
+            return 1.0;
+        }
+        CGFloat scale = 1.0 - (SCREEN_WIDTH/2 - px)/RATIOFORSCALE;
+        if(scale > 1.0){
+            scale = 1.0;
+        }
+        return scale;
         
     }
     

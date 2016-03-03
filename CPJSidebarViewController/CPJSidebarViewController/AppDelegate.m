@@ -33,8 +33,12 @@
     
     CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav withRightVC:rightVC];
 //    sidebarVC.scaleRatio = 0.7;
-    sidebarVC.leftDistance = 100;
-    sidebarVC.scaleRatio = 0.4;
+    sidebarVC.leftDistance = 200;
+    sidebarVC.rightDistance = 50;
+    
+    sidebarVC.rightScale = YES;
+    sidebarVC.leftScale = YES;
+
     // 3. 创建跟控制器
 //    LeftViewController *controller = [[LeftViewController alloc] initWithLeftView:left andMainView:nav andRightView:right];
     
