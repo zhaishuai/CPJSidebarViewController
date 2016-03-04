@@ -31,7 +31,8 @@
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     
-    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav withRightVC:rightVC];
+//    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav withRightVC:rightVC];
+    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav];
 //    sidebarVC.scaleRatio = 0.7;
     sidebarVC.leftDistance = 200;
     sidebarVC.rightDistance = 50;

@@ -73,14 +73,20 @@
     }else if(sender.state == UIGestureRecognizerStateChanged){
         
         if(px >= SCREEN_WIDTH/2){                                 //向右滑动
-            self.leftVC.view.hidden = NO;
-            self.rightVC.view.hidden = YES;
+            if(self.leftVC){
+                self.leftVC.view.hidden = NO;
+                self.rightVC.view.hidden = YES;
+                [self slideAnimationWithPoint:point];
+            }
         }else{                                                    //向左滑动
-            self.leftVC.view.hidden = YES;
-            self.rightVC.view.hidden = NO;
+            if(self.rightVC){
+                self.leftVC.view.hidden = YES;
+                self.rightVC.view.hidden = NO;
+                [self slideAnimationWithPoint:point];
+            }
         }
         
-        [self slideAnimationWithPoint:point];
+        
     }else if(sender.state == UIGestureRecognizerStateEnded){
         
         if(px >= SCREEN_WIDTH/2){                                 //向右滑动
