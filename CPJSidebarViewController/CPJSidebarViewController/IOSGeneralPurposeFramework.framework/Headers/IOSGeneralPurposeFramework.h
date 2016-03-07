@@ -46,4 +46,7 @@ FOUNDATION_EXPORT const unsigned char IOSGeneralPurposeFrameworkVersionString[];
 #import "CPJClippingPanel.h"
 #import "CPJImageClipping.h"
 #import "CPJJSONAdapter.h"
+#import "CPJThreadGroup.h"
+#import "CPJImageButton.h"
+
 

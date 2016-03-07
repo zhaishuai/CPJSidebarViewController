@@ -12,7 +12,8 @@
 #import "M13OrderedDictionary.h"
 
 @interface CPJSectionDataSourceCache : NSObject
-
+// 存放数据源中的某条数据
+//
 @property (nonatomic, strong)id       data;
 @property (nonatomic, strong)NSString *cellIdentifier;
 

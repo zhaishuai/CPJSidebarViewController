@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSMActivityPurepicCell : UITableViewCell
+#import "MSMBaseAvtivityCell.h"
+
+#define MSMACTIVITY_PUREPIC_CELLID @"com.MSMActivityPurepicCell.id"
+
+@interface MSMActivityPurepicCell : MSMBaseAvtivityCell
 
 @end

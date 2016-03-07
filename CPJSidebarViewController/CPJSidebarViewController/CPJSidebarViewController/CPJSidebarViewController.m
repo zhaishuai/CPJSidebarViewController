@@ -30,7 +30,7 @@
         self.leftDistance = 150;
         self.rightDistance = self.leftDistance;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-        [self.mainVC.view addGestureRecognizer:panGesture];
+        [self.view addGestureRecognizer:panGesture];
         [self addChildViewController:leftVC];
         leftVC.view.frame = self.view.frame;
         [self.view addSubview:leftVC.view];
@@ -49,6 +49,7 @@
         [self addChildViewController:rightVC];
         [self.view addSubview:self.rightVC.view];
         self.rightVC.view.backgroundColor = [UIColor blueColor];
+        [self.mainVC.view bringSubviewToFront:self.rightVC.view];
     }
     return self;
 }
@@ -191,6 +192,35 @@
     }
     
     return 1.0;
+}
+
+- (void)changeMainViewController:(UIViewController *)viewController{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.mainVC.view.alpha = 0;
+        self.mainVC.view.frame = CGRectMake(SCREEN_WIDTH, self.mainVC.view.frame.origin.y, self.mainVC.view.frame.size.width, self.mainVC.view.frame.size.height);
+    } completion:^(BOOL finished) {
+        viewController.view.frame = self.mainVC.view.frame;
+        viewController.view.alpha = 0.0;
+        [self.mainVC removeFromParentViewController];
+        [self.mainVC.view removeFromSuperview];
+        self.mainVC = viewController;
+        [self addChildViewController:self.mainVC];
+        [self.view addSubview:self.mainVC.view];
+        
+        
+        [UIView animateWithDuration:0.4 animations:^{
+            self.mainVC.view.frame = self.view.frame;
+            self.mainVC.view.center		= CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+            self.mainVC.view.alpha      = 1.0;
+        } completion:^(BOOL finished) {
+            [self.maskBtn removeFromSuperview];
+            self.leftVC.view.hidden = YES;
+            if([self.delegate respondsToSelector:@selector(mainViewControllerOpened)]){
+                [self.delegate mainViewControllerOpened];
+            }
+        }];
+        
+    }];
 }
 
 #pragma mark - 手势代理

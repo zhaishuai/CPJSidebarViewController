@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MSMActivitySection : NSObject
+#import "MSMActivityPlainTextCell.h"
+#import "MSMActivityPurepicCell.h"
+#import "MSMActivityPhotoTextCell.h"
+
+@interface MSMActivitySection : CPJAbstractSection
 
 @end

@@ -75,6 +75,9 @@
                     <state key="normal" title="Messages">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="messageAction:" destination="-1" eventType="touchUpInside" id="KTB-US-iTN"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3p-Zp-K4L">
                     <rect key="frame" x="25" y="390" width="160" height="40"/>

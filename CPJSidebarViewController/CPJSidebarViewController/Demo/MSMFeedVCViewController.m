@@ -22,7 +22,6 @@
     [super initializeAdapterAndSetDatasource];
     
     self.feedInfoDatasource = [[CPJDataSource alloc] initWithArray:@[@"222",@"ddd",@"ddd",@"lll"]];
-//    self.feedSection = [[CPJAbstractSection alloc] initWithCellClass:[MSMFeedCellRegular class] withDataSource:self.feedInfoDatasource withCellID:MSMFEED_CELLID];
     self.feedSection = [[CPJAbstractSection alloc] initWithCellNibName:@"MSMFeedCellRegular" withDataSource:self.feedInfoDatasource withCellID:MSMFEED_CELLID];
     [self.tableViewComponent addSection:self.feedSection];
     

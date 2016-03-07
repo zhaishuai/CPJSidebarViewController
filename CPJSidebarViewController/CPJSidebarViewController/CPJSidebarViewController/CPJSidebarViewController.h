@@ -34,4 +34,6 @@
 
 - (instancetype)initWithLeftVC:(UIViewController *)leftVC withMainVC:(UIViewController *)mainVC withRightVC:(UIViewController *)rightVC;
 
+- (void)changeMainViewController:(UIViewController *)viewController;
+
 @end

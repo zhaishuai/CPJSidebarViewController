@@ -24,7 +24,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     // 2. 创建控制器
-    UIViewController *leftVC = [MSMPersonInfoVC new];
+    MSMPersonInfoVC *leftVC = [MSMPersonInfoVC new];
     UIViewController *mainVC = [MSMFeedVCViewController new];
     UIViewController *rightVC = [UIViewController new];
     
@@ -36,7 +36,8 @@
     
 //    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav withRightVC:rightVC];
     CPJSidebarViewController *sidebarVC = [[MSMSideBarViewController alloc] initWithLeftVC:leftVC withMainVC:nav];
-
+    leftVC.mainVC = sidebarVC;
+    
     sidebarVC.leftDistance = 170;
     sidebarVC.rightDistance = 50;
     

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91BC5711C8D509E0070A9F4 /* MSMActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC5701C8D509E0070A9F4 /* MSMActivityVC.m */; };
+		D91BC5741C8D56E40070A9F4 /* MSMActivitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC5731C8D56E40070A9F4 /* MSMActivitySection.m */; };
+		D91BC5771C8D591A0070A9F4 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC5761C8D591A0070A9F4 /* ActivityModel.m */; };
+		D91BC57D1C8D616E0070A9F4 /* MSMActivityPurepicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC57C1C8D616E0070A9F4 /* MSMActivityPurepicCell.m */; };
+		D91BC5801C8D61970070A9F4 /* MSMActivityPlainTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC57F1C8D61970070A9F4 /* MSMActivityPlainTextCell.m */; };
+		D91BC5831C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */; };
+		D91BC5911C8D6B060070A9F4 /* MSMBaseAvtivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */; };
+		D91BC5921C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91BC5901C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib */; };
+		D91BC59A1C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */; };
 		D937CD441C867F2200DCA084 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD431C867F2200DCA084 /* main.m */; };
 		D937CD471C867F2200DCA084 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD461C867F2200DCA084 /* AppDelegate.m */; };
 		D937CD4A1C867F2200DCA084 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD491C867F2200DCA084 /* ViewController.m */; };
@@ -54,7 +63,6 @@
 		D937CE011C8954E800DCA084 /* MSMFeedVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CE001C8954E800DCA084 /* MSMFeedVCViewController.m */; };
 		D937CE051C89554500DCA084 /* MSMFeedCellRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CE031C89554500DCA084 /* MSMFeedCellRegular.m */; };
 		D937CE061C89554500DCA084 /* MSMFeedCellRegular.xib in Resources */ = {isa = PBXBuildFile; fileRef = D937CE041C89554500DCA084 /* MSMFeedCellRegular.xib */; };
-		D937CE121C897DCF00DCA084 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D937CE111C897DCF00DCA084 /* IOSGeneralPurposeFramework.framework */; };
 		D937CE161C8982ED00DCA084 /* MSMSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CE141C8982ED00DCA084 /* MSMSettingVC.m */; };
 		D937CE171C8982ED00DCA084 /* MSMSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D937CE151C8982ED00DCA084 /* MSMSettingVC.xib */; };
 /* End PBXBuildFile section */
@@ -77,6 +85,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D91BC56F1C8D509E0070A9F4 /* MSMActivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMActivityVC.h; sourceTree = "<group>"; };
+		D91BC5701C8D509E0070A9F4 /* MSMActivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivityVC.m; sourceTree = "<group>"; };
+		D91BC5721C8D56E40070A9F4 /* MSMActivitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMActivitySection.h; sourceTree = "<group>"; };
+		D91BC5731C8D56E40070A9F4 /* MSMActivitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivitySection.m; sourceTree = "<group>"; };
+		D91BC5751C8D591A0070A9F4 /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
+		D91BC5761C8D591A0070A9F4 /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
+		D91BC57A1C8D5EEB0070A9F4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D91BC57B1C8D616E0070A9F4 /* MSMActivityPurepicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMActivityPurepicCell.h; sourceTree = "<group>"; };
+		D91BC57C1C8D616E0070A9F4 /* MSMActivityPurepicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivityPurepicCell.m; sourceTree = "<group>"; };
+		D91BC57E1C8D61970070A9F4 /* MSMActivityPlainTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMActivityPlainTextCell.h; sourceTree = "<group>"; };
+		D91BC57F1C8D61970070A9F4 /* MSMActivityPlainTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivityPlainTextCell.m; sourceTree = "<group>"; };
+		D91BC5811C8D61B50070A9F4 /* MSMActivityPhotoTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMActivityPhotoTextCell.h; sourceTree = "<group>"; };
+		D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivityPhotoTextCell.m; sourceTree = "<group>"; };
+		D91BC58E1C8D6B060070A9F4 /* MSMBaseAvtivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMBaseAvtivityCell.h; sourceTree = "<group>"; };
+		D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMBaseAvtivityCell.m; sourceTree = "<group>"; };
+		D91BC5901C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMBaseAvtivityCell.xib; sourceTree = "<group>"; };
+		D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
 		D937CD3F1C867F2200DCA084 /* CPJSidebarViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJSidebarViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D937CD431C867F2200DCA084 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D937CD451C867F2200DCA084 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,7 +194,6 @@
 		D937CE021C89554500DCA084 /* MSMFeedCellRegular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMFeedCellRegular.h; sourceTree = "<group>"; };
 		D937CE031C89554500DCA084 /* MSMFeedCellRegular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMFeedCellRegular.m; sourceTree = "<group>"; };
 		D937CE041C89554500DCA084 /* MSMFeedCellRegular.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMFeedCellRegular.xib; sourceTree = "<group>"; };
-		D937CE111C897DCF00DCA084 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
 		D937CE131C8982ED00DCA084 /* MSMSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMSettingVC.h; sourceTree = "<group>"; };
 		D937CE141C8982ED00DCA084 /* MSMSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMSettingVC.m; sourceTree = "<group>"; };
 		D937CE151C8982ED00DCA084 /* MSMSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMSettingVC.xib; sourceTree = "<group>"; };
@@ -181,7 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D937CD7A1C892C9F00DCA084 /* QuartzCore.framework in Frameworks */,
-				D937CE121C897DCF00DCA084 /* IOSGeneralPurposeFramework.framework in Frameworks */,
+				D91BC59A1C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +226,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D91BC56D1C8D505D0070A9F4 /* FeedVC */ = {
+			isa = PBXGroup;
+			children = (
+				D937CDFF1C8954E800DCA084 /* MSMFeedVCViewController.h */,
+				D937CE001C8954E800DCA084 /* MSMFeedVCViewController.m */,
+				D937CE021C89554500DCA084 /* MSMFeedCellRegular.h */,
+				D937CE031C89554500DCA084 /* MSMFeedCellRegular.m */,
+				D937CE041C89554500DCA084 /* MSMFeedCellRegular.xib */,
+			);
+			name = FeedVC;
+			sourceTree = "<group>";
+		};
+		D91BC56E1C8D50790070A9F4 /* ActivityVC */ = {
+			isa = PBXGroup;
+			children = (
+				D91BC56F1C8D509E0070A9F4 /* MSMActivityVC.h */,
+				D91BC5701C8D509E0070A9F4 /* MSMActivityVC.m */,
+				D91BC5721C8D56E40070A9F4 /* MSMActivitySection.h */,
+				D91BC5731C8D56E40070A9F4 /* MSMActivitySection.m */,
+				D91BC5751C8D591A0070A9F4 /* ActivityModel.h */,
+				D91BC5761C8D591A0070A9F4 /* ActivityModel.m */,
+				D91BC57B1C8D616E0070A9F4 /* MSMActivityPurepicCell.h */,
+				D91BC57C1C8D616E0070A9F4 /* MSMActivityPurepicCell.m */,
+				D91BC57E1C8D61970070A9F4 /* MSMActivityPlainTextCell.h */,
+				D91BC57F1C8D61970070A9F4 /* MSMActivityPlainTextCell.m */,
+				D91BC5811C8D61B50070A9F4 /* MSMActivityPhotoTextCell.h */,
+				D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */,
+				D91BC58E1C8D6B060070A9F4 /* MSMBaseAvtivityCell.h */,
+				D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */,
+				D91BC5901C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib */,
+			);
+			name = ActivityVC;
+			sourceTree = "<group>";
+		};
 		D937CD361C867F2200DCA084 = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +284,7 @@
 		D937CD411C867F2200DCA084 /* CPJSidebarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D937CE111C897DCF00DCA084 /* IOSGeneralPurposeFramework.framework */,
+				D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */,
 				D937CD891C89502C00DCA084 /* Common */,
 				D937CD7B1C89314D00DCA084 /* Demo */,
 				D937CD751C867F3A00DCA084 /* CPJSidebarViewController */,
@@ -239,6 +297,7 @@
 				D937CD501C867F2200DCA084 /* LaunchScreen.storyboard */,
 				D937CD531C867F2200DCA084 /* Info.plist */,
 				D937CD421C867F2200DCA084 /* Supporting Files */,
+				D91BC57A1C8D5EEB0070A9F4 /* PrefixHeader.pch */,
 			);
 			path = CPJSidebarViewController;
 			sourceTree = "<group>";
@@ -281,16 +340,13 @@
 		D937CD7B1C89314D00DCA084 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				D91BC56E1C8D50790070A9F4 /* ActivityVC */,
+				D91BC56D1C8D505D0070A9F4 /* FeedVC */,
 				D937CD821C89363F00DCA084 /* MSMPersonInfoVC.h */,
 				D937CD831C89363F00DCA084 /* MSMPersonInfoVC.m */,
 				D937CD841C89363F00DCA084 /* MSMPersonInfoVC.xib */,
 				D937CD7C1C89316B00DCA084 /* MSMSideBarViewController.h */,
 				D937CD7D1C89316B00DCA084 /* MSMSideBarViewController.m */,
-				D937CDFF1C8954E800DCA084 /* MSMFeedVCViewController.h */,
-				D937CE001C8954E800DCA084 /* MSMFeedVCViewController.m */,
-				D937CE021C89554500DCA084 /* MSMFeedCellRegular.h */,
-				D937CE031C89554500DCA084 /* MSMFeedCellRegular.m */,
-				D937CE041C89554500DCA084 /* MSMFeedCellRegular.xib */,
 				D937CE131C8982ED00DCA084 /* MSMSettingVC.h */,
 				D937CE141C8982ED00DCA084 /* MSMSettingVC.m */,
 				D937CE151C8982ED00DCA084 /* MSMSettingVC.xib */,
@@ -552,6 +608,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91BC5921C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib in Resources */,
 				D937CE171C8982ED00DCA084 /* MSMSettingVC.xib in Resources */,
 				D937CD521C867F2200DCA084 /* LaunchScreen.storyboard in Resources */,
 				D937CD861C89363F00DCA084 /* MSMPersonInfoVC.xib in Resources */,
@@ -589,6 +646,7 @@
 				D937CDEE1C89502C00DCA084 /* MJRefreshBackGifFooter.m in Sources */,
 				D937CD4A1C867F2200DCA084 /* ViewController.m in Sources */,
 				D937CDDF1C89502C00DCA084 /* AFNetworkReachabilityManager.m in Sources */,
+				D91BC5911C8D6B060070A9F4 /* MSMBaseAvtivityCell.m in Sources */,
 				D937CD471C867F2200DCA084 /* AppDelegate.m in Sources */,
 				D937CDE81C89502C00DCA084 /* MJRefreshComponent.m in Sources */,
 				D937CDF21C89502C00DCA084 /* MJRefreshNormalHeader.m in Sources */,
@@ -603,10 +661,13 @@
 				D937CDEC1C89502C00DCA084 /* MJRefreshAutoNormalFooter.m in Sources */,
 				D937CE051C89554500DCA084 /* MSMFeedCellRegular.m in Sources */,
 				D937CD441C867F2200DCA084 /* main.m in Sources */,
+				D91BC5831C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m in Sources */,
+				D91BC5801C8D61970070A9F4 /* MSMActivityPlainTextCell.m in Sources */,
 				D937CE011C8954E800DCA084 /* MSMFeedVCViewController.m in Sources */,
 				D937CD781C867F6300DCA084 /* CPJSidebarViewController.m in Sources */,
 				D937CDF51C89502C00DCA084 /* MJRefreshConst.m in Sources */,
 				D937CD851C89363F00DCA084 /* MSMPersonInfoVC.m in Sources */,
+				D91BC57D1C8D616E0070A9F4 /* MSMActivityPurepicCell.m in Sources */,
 				D937CDDD1C89502C00DCA084 /* AFHTTPRequestOperationManager.m in Sources */,
 				D937CDE01C89502C00DCA084 /* AFSecurityPolicy.m in Sources */,
 				D937CDF91C89502C00DCA084 /* Reachability.m in Sources */,
@@ -620,7 +681,10 @@
 				D937CDF61C89502C00DCA084 /* UIScrollView+MJExtension.m in Sources */,
 				D937CE161C8982ED00DCA084 /* MSMSettingVC.m in Sources */,
 				D937CDE51C89502C00DCA084 /* MBProgressHUD.m in Sources */,
+				D91BC5711C8D509E0070A9F4 /* MSMActivityVC.m in Sources */,
+				D91BC5771C8D591A0070A9F4 /* ActivityModel.m in Sources */,
 				D937CDE61C89502C00DCA084 /* MJRefreshAutoFooter.m in Sources */,
+				D91BC5741C8D56E40070A9F4 /* MSMActivitySection.m in Sources */,
 				D937CDF01C89502C00DCA084 /* MJRefreshBackStateFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,6 +832,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CPJSidebarViewController",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/CPJSidebarViewController/PrefixHeader.pch";
 				INFOPLIST_FILE = CPJSidebarViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
@@ -787,6 +854,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CPJSidebarViewController",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/CPJSidebarViewController/PrefixHeader.pch";
 				INFOPLIST_FILE = CPJSidebarViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;

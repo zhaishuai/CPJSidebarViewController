@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSMActivityPlainTextCell : UITalbeViewCell
+#import "MSMBaseAvtivityCell.h"
+
+#define MSMACTIVITY_PLAIN_TEXT_CELLID @"com.MSMActivityPlainTextCell.id"
+
+@interface MSMActivityPlainTextCell : MSMBaseAvtivityCell
 
 @end

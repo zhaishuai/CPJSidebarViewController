@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSMActivityVC : UIViewController
+@interface MSMActivityVC : CPJTableViewController
 
 @end

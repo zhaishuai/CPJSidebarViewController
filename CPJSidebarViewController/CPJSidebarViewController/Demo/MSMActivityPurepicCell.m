@@ -8,16 +8,41 @@
 
 #import "MSMActivityPurepicCell.h"
 
+@interface MSMActivityPurepicCell ()
+
+@property (nonatomic)UIView *containerView;
+
+@end
+
 @implementation MSMActivityPurepicCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
+        self.containerView = [[UIView alloc] initWithFrame:CGRectMake(15, 65 + 20, [UIScreen mainScreen].bounds.size.width - 15, 50)];
+        [self addSubview:self.containerView];
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)configCellWithDataModel:(id)model withUserDictionary:(NSDictionary *)userInfo{
+    [super configCellWithDataModel:model withUserDictionary:userInfo];
+    
+    MSMActivityModel *actmodel = model;
+    int                  count = 0;
+    for(NSString *url in actmodel.picArray){
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar2"]];
+        imageView.width        = 50;
+        imageView.height       = 50;
+        imageView.left         = count * (imageView.width + 10);
+        [self.containerView addSubview:imageView];
+    }
+    
+    
 }
+
+- (CGSize)sizeThatFits:(CGSize)size{
+    return CGSizeMake(size.width, self.containerView.bottom + 10);
+}
+
 
 @end

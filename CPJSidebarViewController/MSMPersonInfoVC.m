@@ -8,6 +8,8 @@
 
 #import "MSMPersonInfoVC.h"
 
+#import "MSMActivityVC.h"
+
 @interface MSMPersonInfoVC ()
 
 @end
@@ -27,14 +29,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)messageAction:(id)sender {
+    
+    UIViewController *vc = [MSMActivityVC new];
+//    vc.view.backgroundColor = [UIColor redColor];
+    
+//    self.mainVC.mainVC = vc;
+    
+    vc.view.layer.shadowColor = [UIColor grayColor].CGColor;
+    vc.view.layer.shadowRadius = 10;
+    vc.view.layer.shadowOpacity = 0.9;
+    [self.mainVC changeMainViewController:vc];
+    
+    
 }
-*/
+
 
 @end

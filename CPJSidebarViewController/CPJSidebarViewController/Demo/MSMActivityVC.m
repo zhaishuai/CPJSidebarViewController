@@ -7,16 +7,37 @@
 //
 
 #import "MSMActivityVC.h"
+#import "MSMActivitySection.h"
 
 @interface MSMActivityVC ()
+
+@property (nonatomic) CPJAbstractSection *activtySection;
+@property (nonatomic) CPJDataSource      *dataSource;
 
 @end
 
 @implementation MSMActivityVC
 
+- (void)initializeAdapterAndSetDatasource{
+    [super initializeAdapterAndSetDatasource];
+    self.dataSource = [[CPJDataSource alloc] initWithArray:[[MSMModelGenerator new] activitydata]];
+    
+    
+    self.activtySection = [[MSMActivitySection alloc] initWithCellClass:[MSMActivityPhotoTextCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PHOTOT_TEXT_CELLID];
+    [self.activtySection addCellWithCellClass:[MSMActivityPlainTextCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PLAIN_TEXT_CELLID];
+    [self.activtySection addCellWithCellClass:[MSMActivityPurepicCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PURE_PIC];
+
+    
+    [self.tableViewComponent addSection:self.activtySection];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    self.tableViewComponent.view.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)setCellDictionary:(NSMutableDictionary *)userInfo{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +45,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

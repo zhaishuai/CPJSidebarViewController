@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSMBaseAvtivityCell : UITableViewCell
+#define MSMBaseAvtivityCellID @"com.MSMBaseAvtivityCell.id"
 
+@interface MSMBaseAvtivityCell : CPJTableViewCell
+
+@property (weak, nonatomic) IBOutlet CPJImageButton *avatarView;
 @end

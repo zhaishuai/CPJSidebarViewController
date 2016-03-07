@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSMActivityPhotoTextCell : UITalbeViewCell
+#import "MSMBaseAvtivityCell.h"
+
+#define MSMACTIVITY_PHOTOT_TEXT_CELLID @"com.MSMActivityPhotoTextCell.id"
+
+@interface MSMActivityPhotoTextCell : MSMBaseAvtivityCell
 
 @end
