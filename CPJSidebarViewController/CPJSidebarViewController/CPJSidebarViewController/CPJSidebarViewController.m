@@ -12,8 +12,9 @@
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-@interface CPJSidebarViewController ()
+@interface CPJSidebarViewController ()<UIGestureRecognizerDelegate>
 
+@property (nonatomic)UIButton *maskBtn;
 
 @end
 
@@ -30,8 +31,12 @@
         self.rightDistance = self.leftDistance;
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
         [self.mainVC.view addGestureRecognizer:panGesture];
-        [self.view addSubview:self.leftVC.view];
-        self.leftVC.view.backgroundColor = [UIColor greenColor];
+        [self addChildViewController:leftVC];
+        leftVC.view.frame = self.view.frame;
+        [self.view addSubview:leftVC.view];
+        
+        [self addChildViewController:self.mainVC];
+        mainVC.view.frame = self.view.frame;
         [self.view addSubview:self.mainVC.view];
         self.mainVC.view.backgroundColor = [UIColor redColor];
     }
@@ -39,35 +44,35 @@
 }
 
 - (instancetype)initWithLeftVC:(UIViewController *)leftVC withMainVC:(UIViewController *)mainVC withRightVC:(UIViewController *)rightVC{
-    if(self = [super init]){
-        self.view.backgroundColor = [UIColor whiteColor];
-        self.leftVC = leftVC;
-        self.mainVC = mainVC;
-        self.speedRatio = 1.0;
-        self.leftDistance = 150;
-        self.rightDistance = self.leftDistance;
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-        [self.mainVC.view addGestureRecognizer:panGesture];
-        [self.view addSubview:self.leftVC.view];
-        self.leftVC.view.backgroundColor = [UIColor greenColor];
-        
+    if(self = [self initWithLeftVC:leftVC withMainVC:mainVC]){
         self.rightVC = rightVC;
+        [self addChildViewController:rightVC];
         [self.view addSubview:self.rightVC.view];
         self.rightVC.view.backgroundColor = [UIColor blueColor];
-        
-        [self.view addSubview:self.mainVC.view];
-        self.mainVC.view.backgroundColor = [UIColor redColor];
-        
     }
     return self;
 }
 
+- (void)initializer{
+    
+}
+
+- (UIButton *)maskBtn{
+    if(!_maskBtn){
+        _maskBtn = [[UIButton alloc] init];
+        [_maskBtn addTarget:self action:@selector(maskBtnAvtion) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _maskBtn;
+}
+
+- (void)maskBtnAvtion{
+    [self performOpenMainViewAnimation];
+}
 
 - (void)panAction:(UIPanGestureRecognizer *)sender{
     
     CGPoint point = [sender translationInView:self.view];
     CGFloat px = self.mainVC.view.center.x + point.x;             //当前横坐标
-    NSLog(@"midX:%f     x:%f", SCREEN_WIDTH/2, self.mainVC.view.center.x + point.x);
     if(sender.state == UIGestureRecognizerStateBegan){
 
     }else if(sender.state == UIGestureRecognizerStateChanged){
@@ -111,11 +116,17 @@
 
 - (void)performOpenLeftViewAnimation{
     
-    [UIView beginAnimations:nil context:nil];
-    CGFloat scaleRatio = [self getScaleRatio:CGPointMake(SCREEN_WIDTH/2 + self.leftDistance - self.mainVC.view.center.x, 0)];
-    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,scaleRatio,scaleRatio);
-    self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 + self.leftDistance)), self.mainVC.view.center.y);
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^{
+        CGFloat scaleRatio = [self getScaleRatio:CGPointMake(SCREEN_WIDTH/2 + self.leftDistance - self.mainVC.view.center.x, 0)];
+        self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,scaleRatio,scaleRatio);
+        self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 + self.leftDistance)), self.mainVC.view.center.y);
+    } completion:^(BOOL finished) {
+        self.maskBtn.frame = self.mainVC.view.bounds;
+        [self.mainVC.view addSubview:self.maskBtn];
+        if([self.delegate respondsToSelector:@selector(leftViewControllerOpened)]){
+            [self.delegate leftViewControllerOpened];
+        }
+    }];
 }
 
 - (void)performOpenMainViewAnimation{
@@ -124,16 +135,27 @@
         self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
         self.mainVC.view.center		= CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     } completion:^(BOOL finished) {
+        [self.maskBtn removeFromSuperview];
         self.leftVC.view.hidden = YES;
+        if([self.delegate respondsToSelector:@selector(mainViewControllerOpened)]){
+            [self.delegate mainViewControllerOpened];
+        }
     }];
 }
 
 - (void)performOpenRightViewAnimation{
-    [UIView beginAnimations:nil context:nil];
-    CGFloat scaleRatio = [self getScaleRatio:CGPointMake(SCREEN_WIDTH/2 - self.rightDistance - self.mainVC.view.center.x, 0)];
-    self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,scaleRatio, scaleRatio);
-    self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 - self.rightDistance)), self.mainVC.view.center.y);
-    [UIView commitAnimations];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        CGFloat scaleRatio = [self getScaleRatio:CGPointMake(SCREEN_WIDTH/2 - self.rightDistance - self.mainVC.view.center.x, 0)];
+        self.mainVC.view.transform	= CGAffineTransformScale(CGAffineTransformIdentity,scaleRatio, scaleRatio);
+        self.mainVC.view.center		= CGPointMake(((SCREEN_WIDTH/2 - self.rightDistance)), self.mainVC.view.center.y);
+    } completion:^(BOOL finished) {
+        self.maskBtn.frame = self.mainVC.view.bounds;
+        [self.mainVC.view addSubview:self.maskBtn];
+        if([self.delegate respondsToSelector:@selector(rightViewControllerOpened)]){
+            [self.delegate rightViewControllerOpened];
+        }
+    }];
 }
 
 - (void)slideAnimationWithPoint:(CGPoint)point{
@@ -171,5 +193,15 @@
     return 1.0;
 }
 
+#pragma mark - 手势代理
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        NSLog(@"pinchGesture");
+        [self.view addGestureRecognizer: gestureRecognizer];
+    }
+    //etc
+    return YES;
+}
 
 @end

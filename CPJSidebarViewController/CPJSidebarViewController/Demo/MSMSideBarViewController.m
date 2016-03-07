@@ -10,4 +10,22 @@
 
 @implementation MSMSideBarViewController
 
+- (instancetype)initWithLeftVC:(UIViewController *)leftVC withMainVC:(UIViewController *)mainVC{
+    if(self = [super initWithLeftVC:leftVC withMainVC:mainVC]){
+        self.mainVC.view.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.mainVC.view.layer.shadowRadius = 10;
+        self.mainVC.view.layer.shadowOpacity = 0.9;
+    }
+    return self;
+}
+
+- (instancetype)initWithLeftVC:(UIViewController *)leftVC withMainVC:(UIViewController *)mainVC withRightVC:(UIViewController *)rightVC{
+    if(self = [super initWithLeftVC:leftVC withMainVC:mainVC withRightVC:rightVC]){
+        self.mainVC.view.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.mainVC.view.layer.shadowRadius = 10;
+        self.mainVC.view.layer.shadowOpacity = 0.9;
+    }
+    return self;
+}
+
 @end

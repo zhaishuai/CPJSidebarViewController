@@ -16,7 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.userAvatarImg.layer.masksToBounds = YES;
+    self.userAvatarImg.layer.cornerRadius = self.userAvatarImg.frame.size.width/2;
+    self.userAvatarImg.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (void)didReceiveMemoryWarning {

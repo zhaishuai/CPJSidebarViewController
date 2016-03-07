@@ -7,16 +7,34 @@
 //
 
 #import "MSMFeedVCViewController.h"
+#import "MSMFeedCellRegular.h"
 
 @interface MSMFeedVCViewController ()
+
+@property (nonatomic, strong)CPJAbstractSection     *feedSection;
+@property (nonatomic, strong)CPJDataSource          *feedInfoDatasource;
 
 @end
 
 @implementation MSMFeedVCViewController
 
+- (void)initializeAdapterAndSetDatasource{
+    [super initializeAdapterAndSetDatasource];
+    
+    self.feedInfoDatasource = [[CPJDataSource alloc] initWithArray:@[@"222",@"ddd",@"ddd",@"lll"]];
+//    self.feedSection = [[CPJAbstractSection alloc] initWithCellClass:[MSMFeedCellRegular class] withDataSource:self.feedInfoDatasource withCellID:MSMFEED_CELLID];
+    self.feedSection = [[CPJAbstractSection alloc] initWithCellNibName:@"MSMFeedCellRegular" withDataSource:self.feedInfoDatasource withCellID:MSMFEED_CELLID];
+    [self.tableViewComponent addSection:self.feedSection];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)setCellDictionary:(NSMutableDictionary *)userInfo{
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +42,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

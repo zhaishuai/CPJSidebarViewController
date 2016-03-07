@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CPJSidebarDelegate <NSObject>
+
+- (void)leftViewControllerOpened;
+
+- (void)rightViewControllerOpened;
+
+- (void)mainViewControllerOpened;
+
+@end
+
 @interface CPJSidebarViewController : UIViewController
 
 @property (nonatomic)UIViewController* leftVC;                          //左侧面板控制器
@@ -18,7 +28,7 @@
 @property (nonatomic, assign)CGFloat   rightDistance;                   //右窗口打开的距离
 @property (nonatomic, assign)BOOL      leftScale;                       //向左滑动并且缩放
 @property (nonatomic, assign)BOOL      rightScale;                      //向右滑动并且缩放
-
+@property (nonatomic, weak)id          delegate;                        //代理
 
 - (instancetype)initWithLeftVC:(UIViewController *)leftVC withMainVC:(UIViewController *)mainVC;
 

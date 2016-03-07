@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <IOSGeneralPurposeFramework/IOSGeneralPurposeFramework.h>
 
-@interface MSMFeedVCViewController : UIViewController
+@interface MSMFeedVCViewController : CPJTableViewController
 
 @end

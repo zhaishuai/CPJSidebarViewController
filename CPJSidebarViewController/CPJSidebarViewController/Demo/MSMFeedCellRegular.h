@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <IOSGeneralPurposeFramework/IOSGeneralPurposeFramework.h>
 
-@interface MSMFeedCellRegular : UITableViewCell
+#define MSMFEED_CELLID @"com.msmfeedcell"
+
+@interface MSMFeedCellRegular : CPJTableViewCell
 
 @end

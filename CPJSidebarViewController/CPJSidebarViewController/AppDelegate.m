@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "CPJSidebarViewController.h"
+#import "MSMSideBarViewController.h"
+#import "MSMPersonInfoVC.h"
+#import "Demo/MSMFeedVCViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +24,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     // 2. 创建控制器
-    UIViewController *leftVC = [UIViewController new];
-    UIViewController *mainVC = [UIViewController new];
+    UIViewController *leftVC = [MSMPersonInfoVC new];
+    UIViewController *mainVC = [MSMFeedVCViewController new];
     UIViewController *rightVC = [UIViewController new];
     
     
@@ -32,22 +35,22 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     
 //    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav withRightVC:rightVC];
-    CPJSidebarViewController *sidebarVC = [[CPJSidebarViewController alloc] initWithLeftVC:leftVC withMainVC:nav];
-//    sidebarVC.scaleRatio = 0.7;
-    sidebarVC.leftDistance = 200;
+    CPJSidebarViewController *sidebarVC = [[MSMSideBarViewController alloc] initWithLeftVC:leftVC withMainVC:nav];
+
+    sidebarVC.leftDistance = 170;
     sidebarVC.rightDistance = 50;
     
     sidebarVC.rightScale = YES;
     sidebarVC.leftScale = YES;
-
-    // 3. 创建跟控制器
-//    LeftViewController *controller = [[LeftViewController alloc] initWithLeftView:left andMainView:nav andRightView:right];
-    
     
     // 4. 设置跟控制器
     self.window.rootViewController = sidebarVC;
     // 5. 显示 window
     [self.window makeKeyAndVisible];
+    
+    
+    
+    
     return YES;
 }
 
