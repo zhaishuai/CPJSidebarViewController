@@ -14,7 +14,6 @@
 		D91BC5801C8D61970070A9F4 /* MSMActivityPlainTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC57F1C8D61970070A9F4 /* MSMActivityPlainTextCell.m */; };
 		D91BC5831C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */; };
 		D91BC5911C8D6B060070A9F4 /* MSMBaseAvtivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */; };
-		D91BC5921C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91BC5901C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib */; };
 		D91BC59A1C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */; };
 		D937CD441C867F2200DCA084 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD431C867F2200DCA084 /* main.m */; };
 		D937CD471C867F2200DCA084 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD461C867F2200DCA084 /* AppDelegate.m */; };
@@ -100,7 +99,6 @@
 		D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivityPhotoTextCell.m; sourceTree = "<group>"; };
 		D91BC58E1C8D6B060070A9F4 /* MSMBaseAvtivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMBaseAvtivityCell.h; sourceTree = "<group>"; };
 		D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMBaseAvtivityCell.m; sourceTree = "<group>"; };
-		D91BC5901C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMBaseAvtivityCell.xib; sourceTree = "<group>"; };
 		D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
 		D937CD3F1C867F2200DCA084 /* CPJSidebarViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJSidebarViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D937CD431C867F2200DCA084 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 				D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */,
 				D91BC58E1C8D6B060070A9F4 /* MSMBaseAvtivityCell.h */,
 				D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */,
-				D91BC5901C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib */,
 			);
 			name = ActivityVC;
 			sourceTree = "<group>";
@@ -608,7 +605,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D91BC5921C8D6B060070A9F4 /* MSMBaseAvtivityCell.xib in Resources */,
 				D937CE171C8982ED00DCA084 /* MSMSettingVC.xib in Resources */,
 				D937CD521C867F2200DCA084 /* LaunchScreen.storyboard in Resources */,
 				D937CD861C89363F00DCA084 /* MSMPersonInfoVC.xib in Resources */,

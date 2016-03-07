@@ -12,5 +12,9 @@
 
 @interface MSMBaseAvtivityCell : CPJTableViewCell
 
-@property (weak, nonatomic) IBOutlet CPJImageButton *avatarView;
+@property (strong, nonatomic) CPJImageButton *avatarView;
+@property (strong, nonatomic) UILabel *nameLabel;
+@property (strong, nonatomic) UILabel *stateLabel;
+@property (strong, nonatomic) UILabel *timeLabel;
+
 @end

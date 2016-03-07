@@ -19,6 +19,7 @@
 
 - (void)configCellWithDataModel:(id)model withUserDictionary:(NSDictionary *)userInfo{
     [super configCellWithDataModel:model withUserDictionary:userInfo];
+    
 }
 
 - (CGSize)sizeThatFits:(CGSize)size{

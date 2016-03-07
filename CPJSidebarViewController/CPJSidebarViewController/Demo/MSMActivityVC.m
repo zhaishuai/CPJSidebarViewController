@@ -24,8 +24,9 @@
     
     
     self.activtySection = [[MSMActivitySection alloc] initWithCellClass:[MSMActivityPhotoTextCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PHOTOT_TEXT_CELLID];
-    [self.activtySection addCellWithCellClass:[MSMActivityPlainTextCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PLAIN_TEXT_CELLID];
-    [self.activtySection addCellWithCellClass:[MSMActivityPurepicCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PURE_PIC];
+    [self.activtySection.cellDict addObject:[MSMActivityPlainTextCell class] pairedWithKey:MSMACTIVITY_PLAIN_TEXT_CELLID];
+    [self.activtySection.cellDict addObject:[MSMActivityPurepicCell class] pairedWithKey:MSMACTIVITY_PUREPIC_CELLID];
+
 
     
     [self.tableViewComponent addSection:self.activtySection];

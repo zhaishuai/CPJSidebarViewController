@@ -9,6 +9,7 @@
 #import "MSMPersonInfoVC.h"
 
 #import "MSMActivityVC.h"
+#import "MSMFeedVCViewController.h"
 
 @interface MSMPersonInfoVC ()
 
@@ -31,18 +32,28 @@
 
 - (IBAction)messageAction:(id)sender {
     
-    UIViewController *vc = [MSMActivityVC new];
-//    vc.view.backgroundColor = [UIColor redColor];
-    
-//    self.mainVC.mainVC = vc;
-    
-    vc.view.layer.shadowColor = [UIColor grayColor].CGColor;
-    vc.view.layer.shadowRadius = 10;
-    vc.view.layer.shadowOpacity = 0.9;
-    [self.mainVC changeMainViewController:vc];
     
     
+    UIViewController *vc = [MSMFeedVCViewController new];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    nav.view.layer.shadowColor = [UIColor grayColor].CGColor;
+    nav.view.layer.shadowRadius = 10;
+    nav.view.layer.shadowOpacity = 0.9;
+    
+    [self.mainVC changeMainViewController:nav];
 }
 
+- (IBAction)activityAction:(id)sender {
+    
+    UIViewController *vc = [MSMActivityVC new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.view.layer.shadowColor = [UIColor grayColor].CGColor;
+    nav.view.layer.shadowRadius = 10;
+    nav.view.layer.shadowOpacity = 0.9;
+    [self.mainVC changeMainViewController:nav];
+    
+}
 
 @end
