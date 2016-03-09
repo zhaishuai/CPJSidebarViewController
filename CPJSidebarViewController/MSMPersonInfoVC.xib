@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSMPersonInfoVC">
             <connections>
-                <outlet property="userAvatarImg" destination="6bx-rb-q4W" id="2FB-Qp-oFb"/>
+                <outlet property="userAvatarImg" destination="6bx-rb-q4W" id="cRu-gf-yqM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="6bx-rb-q4W">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="6bx-rb-q4W" customClass="CPJImageButton">
                     <rect key="frame" x="25" y="33" width="160" height="160"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="160" id="DLp-gm-YLV">

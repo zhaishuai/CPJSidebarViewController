@@ -8,6 +8,7 @@
 
 #import "MSMActivityVC.h"
 #import "MSMActivitySection.h"
+#import "MJRefresh.h"
 
 @interface MSMActivityVC ()
 
@@ -18,32 +19,50 @@
 
 @implementation MSMActivityVC
 
-- (void)initializeAdapterAndSetDatasource{
-    [super initializeAdapterAndSetDatasource];
-    self.dataSource = [[CPJDataSource alloc] initWithArray:[[MSMModelGenerator new] activitydata]];
-    
-    
-    self.activtySection = [[MSMActivitySection alloc] initWithCellClass:[MSMActivityPhotoTextCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PHOTOT_TEXT_CELLID];
-    [self.activtySection.cellDict addObject:[MSMActivityPlainTextCell class] pairedWithKey:MSMACTIVITY_PLAIN_TEXT_CELLID];
-    [self.activtySection.cellDict addObject:[MSMActivityPurepicCell class] pairedWithKey:MSMACTIVITY_PUREPIC_CELLID];
-
-
-    
-    [self.tableViewComponent addSection:self.activtySection];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.tableViewComponent.view.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)initializeAdapterAndSetDatasource{
+    [super initializeAdapterAndSetDatasource];
+    self.dataSource     = [[CPJDataSource alloc] initWithArray:[[MSMModelGenerator new] activitydata]];
+    self.activtySection = [[MSMActivitySection alloc] initWithCellClass:[MSMActivityPhotoTextCell class] withDataSource:self.dataSource withCellID:MSMACTIVITY_PHOTOT_TEXT_CELLID];
+    [self.activtySection addCellWithCellClass:[MSMActivityPlainTextCell class] withCellID:MSMACTIVITY_PLAIN_TEXT_CELLID];
+    [self.activtySection addCellWithCellClass:[MSMActivityPurepicCell class] withCellID:MSMACTIVITY_PUREPIC_CELLID];
+    [self.tableViewComponent addSection:self.activtySection];
+    
+    [self.tableViewComponent addRefreshHeaderComponentWithTarget:self withRefreshAction:@selector(loadNewDataRefresh)];
+    [self.tableViewComponent addRefreshFooterComponentWithTarget:self withRefreshAction:@selector(loadOldDataRefresh)];
+    self.networkStateHander = [CPJBaseNetworkStateComponent new];
+
+}
+
+- (void)loadNewDataRefresh{
+    [self.loadingComponent showLoadingViewToVC:self withTitle:@"加载中"];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        sleep(2);
+        [self.loadingComponent hideLoadingViewFromVC:self];
+        [self.loadingComponent showGlanceViewToVC:self withTitle:@"刷新完毕" withTime:1 withCallBack:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableViewComponent.view.header endRefreshing];
+        });
+        
+    });
+    
+}
+
+- (void)loadOldDataRefresh{
+    [self.tableViewComponent.view.footer endRefreshing];
 }
 
 - (void)setCellDictionary:(NSMutableDictionary *)userInfo{
+    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 

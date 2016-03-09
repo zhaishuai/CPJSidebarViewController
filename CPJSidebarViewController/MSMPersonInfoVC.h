@@ -10,7 +10,8 @@
 #import "CPJSidebarViewController.h"
 
 @interface MSMPersonInfoVC : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *userAvatarImg;
+@property (weak, nonatomic) IBOutlet CPJImageButton *userAvatarImg;
+
 @property (nonatomic, weak) CPJSidebarViewController *mainVC;
 
 @end

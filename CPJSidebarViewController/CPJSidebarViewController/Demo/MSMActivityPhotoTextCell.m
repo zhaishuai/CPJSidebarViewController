@@ -33,10 +33,10 @@
 
 - (void)configCellWithDataModel:(id)model withUserDictionary:(NSDictionary *)userInfo{
     [super configCellWithDataModel:model withUserDictionary:userInfo];
-    MSMActivityModel *activeInfo = model;
-    self.contentImageView.image  = [UIImage imageNamed:[activeInfo.picArray firstObject]];
-    self.contentLabel.text       = activeInfo.content;
-    self.contentLabel.height     = [self heightForLabel:self.contentLabel];
+    MSMActivityModel *activeInfo         = model;
+    self.contentImageView.image          = [UIImage imageNamed:[activeInfo.picArray firstObject]];
+    self.contentLabel.text               = activeInfo.content;
+    self.contentLabel.height             = [self heightForLabel:self.contentLabel];
     
     self.cellHeight = self.contentLabel.bottom > self.contentImageView.bottom ? self.contentLabel.bottom + 15 : self.contentImageView.bottom + 15;
 }

@@ -14,7 +14,7 @@
 
 @interface MSMActivityPlainTextCell : MSMBaseAvtivityCell
 
-@property (nonatomic) UILabel *contentTextLabel;
+@property (nonatomic) UILabel       *contentTextLabel;
 
 @property (nonatomic, assign)double temp;
 @end
