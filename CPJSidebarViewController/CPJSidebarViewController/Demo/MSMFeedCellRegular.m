@@ -18,6 +18,7 @@
 @implementation MSMFeedCellRegular
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.circle.layer.masksToBounds = YES;
     self.circle.layer.cornerRadius = self.circle.frame.size.width/2;
     self.avatarImg.layer.cornerRadius = self.avatarImg.frame.size.width/2;
@@ -42,9 +43,8 @@
     // Configure the view for the selected state
 }
 
-- (CGSize)sizeThatFits:(CGSize)size{
-//    CGFloat totalHeight = AVATAR_WIDTH;
-    return CGSizeMake(size.width, 425);
+- (CGFloat)cellHeight{
+    return 425.0;
 }
 
 @end

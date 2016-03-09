@@ -30,6 +30,7 @@
         self.timeLabel.right         = [UIScreen mainScreen].bounds.size.width - 15;
         self.timeLabel.text          = @"3 MIN AGO";
         [self addSubview:self.timeLabel];
+        self.timeLabel.adjustsFontSizeToFitWidth = YES;
         
         self.nameLabel               = [[UILabel alloc] init];
         self.nameLabel.textColor     = [UIColor blackColor];
@@ -50,23 +51,17 @@
         self.stateLabel.top          = self.nameLabel.bottom;
         self.stateLabel.text         = @"STATE";
         [self addSubview:self.stateLabel];
-        
     }
     return self;
-}
-
-- (void)awakeFromNib {
-    // Initialization code
-    [self.avatarView setCornerRadius:self.avatarView.width/2];
 }
 
 - (void)configCellWithDataModel:(id)model withUserDictionary:(NSDictionary *)userInfo{
     [super configCellWithDataModel:model withUserDictionary:userInfo];
     MSMActivityModel *actModel = model;
-    self.avatarView.image = [UIImage imageNamed:actModel.avatar];
-    self.nameLabel.text   = actModel.name;
-    self.stateLabel.text  = actModel.stateLabel;
-    self.timeLabel.text   = actModel.time;
+    self.avatarView.image      = [UIImage imageNamed:actModel.avatar];
+    self.nameLabel.text        = actModel.name;
+    self.stateLabel.text       = actModel.stateLabel;
+    self.timeLabel.text        = actModel.time;
     
 }
 
@@ -76,9 +71,5 @@
     // Configure the view for the selected state
 }
 
-- (CGSize)sizeThatFits:(CGSize)size{
-    //    CGFloat totalHeight = AVATAR_WIDTH;
-    return CGSizeMake(size.width, 65);
-}
 
 @end

@@ -14,7 +14,6 @@
 		D91BC5801C8D61970070A9F4 /* MSMActivityPlainTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC57F1C8D61970070A9F4 /* MSMActivityPlainTextCell.m */; };
 		D91BC5831C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */; };
 		D91BC5911C8D6B060070A9F4 /* MSMBaseAvtivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */; };
-		D91BC59A1C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */; };
 		D937CD441C867F2200DCA084 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD431C867F2200DCA084 /* main.m */; };
 		D937CD471C867F2200DCA084 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD461C867F2200DCA084 /* AppDelegate.m */; };
 		D937CD4A1C867F2200DCA084 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CD491C867F2200DCA084 /* ViewController.m */; };
@@ -64,6 +63,7 @@
 		D937CE061C89554500DCA084 /* MSMFeedCellRegular.xib in Resources */ = {isa = PBXBuildFile; fileRef = D937CE041C89554500DCA084 /* MSMFeedCellRegular.xib */; };
 		D937CE161C8982ED00DCA084 /* MSMSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D937CE141C8982ED00DCA084 /* MSMSettingVC.m */; };
 		D937CE171C8982ED00DCA084 /* MSMSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D937CE151C8982ED00DCA084 /* MSMSettingVC.xib */; };
+		D987271B1C8ED0290002EE49 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D987271A1C8ED0290002EE49 /* IOSGeneralPurposeFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +99,6 @@
 		D91BC5821C8D61B50070A9F4 /* MSMActivityPhotoTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMActivityPhotoTextCell.m; sourceTree = "<group>"; };
 		D91BC58E1C8D6B060070A9F4 /* MSMBaseAvtivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMBaseAvtivityCell.h; sourceTree = "<group>"; };
 		D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMBaseAvtivityCell.m; sourceTree = "<group>"; };
-		D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
 		D937CD3F1C867F2200DCA084 /* CPJSidebarViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJSidebarViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D937CD431C867F2200DCA084 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D937CD451C867F2200DCA084 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,6 +194,7 @@
 		D937CE131C8982ED00DCA084 /* MSMSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMSettingVC.h; sourceTree = "<group>"; };
 		D937CE141C8982ED00DCA084 /* MSMSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMSettingVC.m; sourceTree = "<group>"; };
 		D937CE151C8982ED00DCA084 /* MSMSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMSettingVC.xib; sourceTree = "<group>"; };
+		D987271A1C8ED0290002EE49 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D937CD7A1C892C9F00DCA084 /* QuartzCore.framework in Frameworks */,
-				D91BC59A1C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework in Frameworks */,
+				D987271B1C8ED0290002EE49 /* IOSGeneralPurposeFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +281,7 @@
 		D937CD411C867F2200DCA084 /* CPJSidebarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D91BC5991C8D80B90070A9F4 /* IOSGeneralPurposeFramework.framework */,
+				D987271A1C8ED0290002EE49 /* IOSGeneralPurposeFramework.framework */,
 				D937CD891C89502C00DCA084 /* Common */,
 				D937CD7B1C89314D00DCA084 /* Demo */,
 				D937CD751C867F3A00DCA084 /* CPJSidebarViewController */,

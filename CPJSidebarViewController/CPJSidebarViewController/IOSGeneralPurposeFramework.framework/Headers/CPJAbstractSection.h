@@ -42,12 +42,17 @@
 
 - (instancetype)initWithCellNibName:(NSString *)nibName withDataSource:(CPJDataSource *)dataSource withCellID:(NSString *)cellID;
 
+
 /**
  * @breif 关联cell和section以及dataSource
  */
 - (void)addCellWithCellClass:(Class)objclass withDataSource:(CPJDataSource *)dataSource withCellID:(NSString *)cellID;
 
 - (void)addWithCellNibName:(NSString *)nibName withDataSource:(CPJDataSource *)dataSource withCellID:(NSString *)cellID;
+
+- (void)addCellWithCellClass:(Class)objclass withCellID:(NSString *)cellID;
+
+- (void)addWithCellNibName:(NSString *)nibName withCellID:(NSString *)cellID;
 
 /**
  * 根据需要在子类中重写,根据indexPath和dataSource来选择使用相关cell

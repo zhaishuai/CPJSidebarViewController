@@ -14,4 +14,7 @@
 
 @interface MSMActivityPhotoTextCell : MSMBaseAvtivityCell
 
+@property (nonatomic, strong)CPJImageButton *contentImageView;
+@property (nonatomic, strong)UILabel        *contentLabel;
+
 @end
