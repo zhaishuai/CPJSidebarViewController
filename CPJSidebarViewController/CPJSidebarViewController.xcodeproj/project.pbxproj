@@ -66,7 +66,8 @@
 		D987271E1C8FC4960002EE49 /* CPJGridLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D987271D1C8FC4960002EE49 /* CPJGridLayoutView.m */; };
 		D98727401C8FEA310002EE49 /* MSMFaceClipperVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D987273E1C8FEA310002EE49 /* MSMFaceClipperVC.m */; };
 		D98727411C8FEA310002EE49 /* MSMFaceClipperVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D987273F1C8FEA310002EE49 /* MSMFaceClipperVC.xib */; };
-		D98727471C8FF18B0002EE49 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98727461C8FF18B0002EE49 /* IOSGeneralPurposeFramework.framework */; };
+		D9BC107A1C967D7300325338 /* CPJJSONAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BC10791C967D7300325338 /* CPJJSONAdapter.m */; };
+		D9BC107C1C967D9600325338 /* IOSGeneralPurposeFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BC107B1C967D9600325338 /* IOSGeneralPurposeFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,7 +203,9 @@
 		D987273D1C8FEA310002EE49 /* MSMFaceClipperVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMFaceClipperVC.h; sourceTree = "<group>"; };
 		D987273E1C8FEA310002EE49 /* MSMFaceClipperVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMFaceClipperVC.m; sourceTree = "<group>"; };
 		D987273F1C8FEA310002EE49 /* MSMFaceClipperVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMFaceClipperVC.xib; sourceTree = "<group>"; };
-		D98727461C8FF18B0002EE49 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
+		D9BC10781C967D7300325338 /* CPJJSONAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJJSONAdapter.h; sourceTree = "<group>"; };
+		D9BC10791C967D7300325338 /* CPJJSONAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJJSONAdapter.m; sourceTree = "<group>"; };
+		D9BC107B1C967D9600325338 /* IOSGeneralPurposeFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOSGeneralPurposeFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D937CD7A1C892C9F00DCA084 /* QuartzCore.framework in Frameworks */,
-				D98727471C8FF18B0002EE49 /* IOSGeneralPurposeFramework.framework in Frameworks */,
+				D9BC107C1C967D9600325338 /* IOSGeneralPurposeFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +285,7 @@
 		D937CD411C867F2200DCA084 /* CPJSidebarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D98727461C8FF18B0002EE49 /* IOSGeneralPurposeFramework.framework */,
+				D9BC107B1C967D9600325338 /* IOSGeneralPurposeFramework.framework */,
 				D937CD891C89502C00DCA084 /* Common */,
 				D937CD7B1C89314D00DCA084 /* Demo */,
 				D937CD751C867F3A00DCA084 /* CPJSidebarViewController */,
@@ -355,13 +358,13 @@
 		D937CD891C89502C00DCA084 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D9BC10771C967D7300325338 /* CPJModelGenerator */,
 				D987271C1C8FC4960002EE49 /* CPJGridLayoutView.h */,
 				D987271D1C8FC4960002EE49 /* CPJGridLayoutView.m */,
 				D987273D1C8FEA310002EE49 /* MSMFaceClipperVC.h */,
 				D987273E1C8FEA310002EE49 /* MSMFaceClipperVC.m */,
 				D987273F1C8FEA310002EE49 /* MSMFaceClipperVC.xib */,
 				D937CD8A1C89502C00DCA084 /* AFNetworking */,
-				D937CD9E1C89502C00DCA084 /* Mantle */,
 				D937CDA01C89502C00DCA084 /* MBProgressHUD.h */,
 				D937CDA11C89502C00DCA084 /* MBProgressHUD.m */,
 				D937CDA21C89502C00DCA084 /* MJRefresh */,
@@ -397,21 +400,6 @@
 				D937CD9D1C89502C00DCA084 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		D937CD9E1C89502C00DCA084 /* Mantle */ = {
-			isa = PBXGroup;
-			children = (
-				D937CD9F1C89502C00DCA084 /* extobjc */,
-			);
-			path = Mantle;
-			sourceTree = "<group>";
-		};
-		D937CD9F1C89502C00DCA084 /* extobjc */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = extobjc;
 			sourceTree = "<group>";
 		};
 		D937CDA21C89502C00DCA084 /* MJRefresh */ = {
@@ -520,6 +508,15 @@
 				D91BC58F1C8D6B060070A9F4 /* MSMBaseAvtivityCell.m */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		D9BC10771C967D7300325338 /* CPJModelGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				D9BC10781C967D7300325338 /* CPJJSONAdapter.h */,
+				D9BC10791C967D7300325338 /* CPJJSONAdapter.m */,
+			);
+			path = CPJModelGenerator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,6 +689,7 @@
 				D937CDE01C89502C00DCA084 /* AFSecurityPolicy.m in Sources */,
 				D937CDF91C89502C00DCA084 /* Reachability.m in Sources */,
 				D937CDF71C89502C00DCA084 /* UIScrollView+MJRefresh.m in Sources */,
+				D9BC107A1C967D7300325338 /* CPJJSONAdapter.m in Sources */,
 				D937CDE31C89502C00DCA084 /* AFURLResponseSerialization.m in Sources */,
 				D937CDED1C89502C00DCA084 /* MJRefreshAutoStateFooter.m in Sources */,
 				D937CDDC1C89502C00DCA084 /* AFHTTPRequestOperation.m in Sources */,

@@ -41,22 +41,25 @@
     [self.loadingComponent showLoadingViewToVC:self withTitle:@"加载中"];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         sleep(2);
-        [self.loadingComponent hideLoadingViewFromVC:self];
-        [self.loadingComponent showGlanceViewToVC:self withTitle:@"刷新完毕" withTime:1 withCallBack:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.loadingComponent hideLoadingViewFromVC:self];
+            [self.loadingComponent showGlanceViewToVC:self withTitle:@"刷新完毕" withTime:1 withCallBack:nil];
+            [self.dataSource.dataList addObjectsFromArray:[[MSMModelGenerator new] activitydata]];
+            [self.tableViewComponent reloadData];
             [self.tableViewComponent.view.header endRefreshing];
         });
-        
     });
     
 }
 
 - (void)loadOldDataRefresh{
     [self.tableViewComponent.view.footer endRefreshing];
+    [self.dataSource.dataList addObjectsFromArray:[[MSMModelGenerator new] activitydata]];
+    [self.tableViewComponent reloadData];
 }
 
 - (void)setCellDictionary:(NSMutableDictionary *)userInfo{
-    
+    [super setCellDictionary:userInfo];
     
 }
 

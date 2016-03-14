@@ -15,5 +15,6 @@
 #import <IOSGeneralPurposeFramework/IOSGeneralPurposeFramework.h>
 #import "ActivityModel.h"
 #import "UIViewExt.h"
+#import "CPJJSONAdapter.h"
 
 #endif /* PrefixHeader_pch */

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <IOSGeneralPurposeFramework/IOSGeneralPurposeFramework.h>
-
+#import "CPJJSONAdapter.h"
 
 
 #define MSMACTIVITY_PURE_PIC   0
